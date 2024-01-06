@@ -1,0 +1,11 @@
+@import "core/styles/mixins";
+
+.title {
+  @include adaptiveFont(75, 35);
+  line-height: 90%;
+  margin: clamp(60px, 5vw, 80px) 0 clamp(20px, 5vw, 40px ) 0;
+
+  &_white {
+    color: #fff;
+  }
+}

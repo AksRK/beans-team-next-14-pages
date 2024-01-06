@@ -1,0 +1,41 @@
+@import "core/styles/mixins";
+
+.button {
+  width: fit-content;
+  padding: 10px 29px;
+  @include adaptiveFont(20, 13);
+  font-size: 20px;
+  border-radius: 35px;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: background-color 0.2s ease-in-out;
+  white-space: nowrap;
+
+  @include mobile {
+    padding: 10px 20px;
+  }
+
+  &_colorPrimary {
+    background: #39AA67;
+    @media (hover: hover) {
+      &:hover {
+        background: #23c274;
+      }
+    }
+  }
+
+  &_colorDark {
+    background: #333;
+    @media (hover: hover) {
+      &:hover {
+        background: #464646;
+      }
+    }
+  }
+
+  &_fullWidth {
+    width: 100%;
+  }
+}
