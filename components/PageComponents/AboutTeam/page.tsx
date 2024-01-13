@@ -1,5 +1,4 @@
 'use client';
-import s from './styles/about-team-page.module.scss';
 import Link from 'next/link';
 import Image from 'next/image';
 import { founder_1, founder_2 } from '@/core/constants/founders';
@@ -38,13 +37,13 @@ const AboutTeamPageComponent = () => {
     <>
       <section className={'small-container'}>
         <Title>{t.aboutTeam.headings.aboutTeam}</Title>
-        <nav className={s.aboutTeamNav}>
+        <nav className={'about-team-nav'}>
           {navLinks.map(link => (
             <Link
               onClick={(e) => handleScrollToSection(e, link.path)}
               key={link.path}
               href={link.path}
-              className={s.aboutTeamNav__item}
+              className={'about-team-nav__item'}
             >
               {link.text}
             </Link>
@@ -54,19 +53,19 @@ const AboutTeamPageComponent = () => {
           t.aboutTeam.description.map((text, index) => <p key={'description_'+index}>{text}</p>)
         }
       </section>
-      <section className={s.aboutTeamFoundersWrp}>
+      <section className={'about-team-founders-wrp'}>
         <div id={'about-team'} className={'small-container'}>
-          <Title className={s.aboutTeamFoundersTitle} color={'white'}>
+          <Title className={'about-team-founders-title'} color={'white'}>
             {t.aboutTeam.headings.whoLeadsTeam}
           </Title>
-          <div className={s.aboutTeamFounders} key={'aboutTeamFounder_'+locale}>
+          <div className={'about-team-founders'} key={'aboutTeamFounder_'+locale}>
             {[founder_1, founder_2].map((founder, index) => (
-              <div className={s.aboutTeamFounder} key={'founder_' + index}>
-                <div className={s.aboutTeamFounder__img}>
+              <div className={'about-team-founder'} key={'founder_' + index}>
+                <div className={'about-team-founder__img'}>
                   <Image src={founder.imagePath} alt={founder.imagePath} fill={true} />
                 </div>
-                <div className={s.aboutTeamFounder__info}>
-                  <Link className={s.aboutTeamFounder__nameLink} href={founder.telegram}>
+                <div className={'about-team-founder__info'}>
+                  <Link className={'about-team-founder__nameLink'} href={founder.telegram}>
                     {t.aboutTeam.team[founder.key].fullName}
                   </Link>
                   <p>{t.aboutTeam.team[founder.key].responsible}</p>
@@ -74,7 +73,7 @@ const AboutTeamPageComponent = () => {
               </div>
             ))}
           </div>
-          <div className={s.aboutTeamFoundersTaskDefinition}>
+          <div className={'about-team-founders-task-definition'}>
             <p>{t.aboutTeam.foundersMessage[0]}</p>
             <p>{t.aboutTeam.foundersMessage[1]}</p>
             <p>
@@ -94,28 +93,28 @@ const AboutTeamPageComponent = () => {
       </section>
       <section>
         <div id={'our-approach'} className={'small-container'}>
-          <Title className={s.aboutTeamOurApproachTitle}>{t.aboutTeam.headings.ourApproach}</Title>
+          <Title className={'about-team-our-approach-title'}>{t.aboutTeam.headings.ourApproach}</Title>
           <OurApproach/>
         </div>
       </section>
       <section>
         <div id={'reviews'} className={'small-container'}>
-          <Title className={s.aboutTeamReviewsTitle}>{t.aboutTeam.headings.reviews}</Title>
-          <ul className={s.aboutTeamReviewsWrp}>
+          <Title className={'about-team-reviews-title'}>{t.aboutTeam.headings.reviews}</Title>
+          <ul className={'about-team-reviews-wrp'}>
             {reviews.map((review, index) => (
-              <li key={'review_' + index} className={s.aboutTeamReview}>
-                <div className={s.aboutTeamReviewer}>
-                  <div className={s.aboutTeamReviewer__img}>
+              <li key={'review_' + index} className={'about-team-review'}>
+                <div className={'about-team-reviewer'}>
+                  <div className={'about-team-reviewer__img'}>
                     <Image src={review.user.image} alt={review.user.image} fill={true} />
                   </div>
-                  <div className={s.aboutTeamReviewer__info}>
+                  <div className={'about-team-reviewer__info'}>
                     {`${review.user.fullName}, `}
                     <a href={review.company.link} target={'_blank'} rel={'nofollow noopener noreferrer'}>
                       {review.company.name}
                     </a>
                   </div>
                 </div>
-                <div className={s.aboutTeamReview__details}>{t.aboutTeam.reviews[review.reviewKey]}</div>
+                <div className={'about-team-review__details'}>{t.aboutTeam.reviews[review.reviewKey]}</div>
               </li>
             ))}
           </ul>

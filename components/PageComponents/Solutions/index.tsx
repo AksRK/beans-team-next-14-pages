@@ -1,4 +1,3 @@
-import s from './solutions.module.scss';
 import ProjectCard, { IProjectCard } from '@/components/PageComponents/Solutions/components/ProjectCard';
 import SmetLabLogoSvg from '@/components/PageComponents/Solutions/components/svg/smetLabLogoSvg';
 import HandSvg from '@/components/PageComponents/Solutions/components/svg/handSvg';
@@ -48,7 +47,7 @@ const SolutionsPageComponent = () => {
         {t.solutions.description[0]}
       </p>
       <p>{t.solutions.description[1]}</p>
-      <ul className={s.projectCardsList}>
+      <ul className={'project-cards-list'}>
         {projectCardsList.map((project, index) => (
           <li key={'project-card' + index}>
             <Link href={'#'}>

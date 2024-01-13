@@ -3,7 +3,7 @@ import '@/core/styles/global.scss'
 import type { AppProps } from 'next/app'
 import { Roboto } from 'next/font/google';
 import AppContexts from '@/components/Common/Contexts';
-import AnimatedLayout from '@/components/Common/AnimatedLayout/layout';
+import AnimatedLayout from '@/components/Common/AnimatedLayout';
 import Head from "next/head";
 import { DictionaryKey, TCommonDictionary } from '@/core/lib/i18n';
 import usePageTranslation from '@/core/hooks/UsePageTranslation';

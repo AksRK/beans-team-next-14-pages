@@ -1,5 +1,6 @@
 @import "mixins";
-@import "home";
+@import "components/common";
+@import "components/page-components";
 
 * {
   @include adaptiveFont(24, 16);

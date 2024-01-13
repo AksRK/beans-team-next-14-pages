@@ -1,0 +1,793 @@
+// AnimatedLayout
+
+.page-wrp {
+  position: relative;
+  z-index: 1;
+  transform-origin: bottom;
+  transition: transform 0.3s ease-in-out, border-radius 0.4s ease-in-out;
+  overflow: hidden;
+
+  &--hidden {
+    overflow: hidden;
+  }
+
+  &--view-footer {
+    transform: translateY(-250px) scale(0.9);
+    border-radius: 0 0 40px 40px;
+
+    @include mobile {
+      transform: translateY(-140px) scale(0.9);
+    }
+  }
+}
+
+.page-wrp-mark {
+  position: relative;
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0);
+}
+
+
+.page-blackout {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+// ____________
+
+// DiscussFormModal
+
+.large-container-discuss-form {
+  @include mobile {
+    padding: 0!important;
+  }
+}
+
+.discuss-form-modal {
+  position: relative;
+  background: #fff;
+  width: 100%;
+  height: 90vh;
+  border-radius: 40px 40px 0 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+    width: 100%;
+    height: 42px;
+    background: #fff;
+    border-radius: 0 0 40px 40px;
+  }
+
+  @include mobile {
+    border-radius: 25px 25px 0 0;
+  }
+
+  &__head {
+    position: relative;
+    text-align: center;
+    padding: 20px;
+    background: #39AA67;
+    border-radius: 40px 40px 0 0;
+
+    @include mobile {
+      border-radius: 25px 25px 0 0;
+    }
+
+    & h3 {
+      margin: 0;
+      color: #FFF;
+      font-weight: 400;
+    }
+
+    & button {
+      background: none;
+      width: 38px;
+      height: 38px;
+      padding: 0;
+      margin: 0;
+      border: none;
+      position: absolute;
+      right: 40px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      @include mobile {
+        right: 15px;
+        width: 30px;
+        height: 30px;
+      }
+
+      & svg {
+        width: 100%;
+        height: 100%;
+        stroke: #fff;
+      }
+    }
+  }
+
+  &__body {
+    height: 100%;
+    max-height: 87.5vh;
+    padding: 80px 60px 70px 60px;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @include mobile {
+      padding: 20px 20px 90px 20px ;
+    }
+
+    & h2 {
+      margin: 0 0 40px 0;
+    }
+  }
+
+  &__form-item-small-wrp {
+    max-width: 610px;
+  }
+
+  & form {
+    & button[type='submit'] {
+      padding: 18px;
+      margin: 40px 0;
+      @include adaptiveFont(24,16);
+
+      @include mobile {
+        margin: 0 0 20px 0;
+      }
+    }
+  }
+
+  &__payment-term-later-wrp {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 40px;
+
+    @include mobile {
+      gap: 10px;
+    }
+
+    & div {
+      margin: 0;
+    }
+  }
+}
+
+.discuss-form-modal-thanks {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & h3 {text-align: center;
+    @include adaptiveFont(60, 20);
+    color: #fff;
+  }
+}
+
+// ____________
+
+// PageNav
+
+.page-nav-wrp {
+  position: fixed;
+  bottom: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 22;
+}
+
+.page-nav_backdrop-blur {
+  background: rgba(241, 246, 248, 0.69);
+  backdrop-filter: blur(5px);
+}
+
+// ____________
+
+// ScrollableSegmented
+
+.scrollable-segmented {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+
+  &__scroll-container {
+    width: fit-content;
+    position: relative;
+    z-index: 0;
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+.scrollable-items-container {
+  background: none;
+  width: 100%;
+  padding: 0;
+}
+
+.scroll-button {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: #fff;
+  z-index: 1;
+  border: none;
+
+  &--left {
+    left: -1px;
+    border-right: 1px solid #DDD;
+    padding: 8px 20px 8px 5px;
+
+    & svg {
+      transform: rotate(180deg);
+    }
+
+    @include mobile {
+      padding: 8px 10px 8px 5px;
+    }
+  }
+
+  &--right {
+    right: 0;
+    border-left: 1px solid #DDD;
+    padding: 8px 5px 8px 20px;
+
+    @include mobile {
+      padding: 8px 5px 8px 10px;
+    }
+  }
+}
+
+// ____________
+
+// Segmented
+
+.segmented {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 25px;
+  background: #F1F6F8;
+  padding: 3px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 5px;
+  z-index: 1;
+
+  &__mark {
+    position: absolute;
+    border-radius: 35px;
+    background: #333;
+    z-index: 0;
+    transition: left 0.3s ease-in-out, width 0.3s ease-in-out, background 0.3s ease-in-out;
+  }
+
+  &__item {
+    padding: 12px;
+    user-select: none;
+    cursor: pointer;
+    z-index: 2;
+    white-space: nowrap;
+    transition: color 0.2s ease-in-out;
+    @include adaptiveFont(20, 13);
+
+    &--active {
+      color: #fff;
+    }
+  }
+}
+
+// ____________
+
+// Button
+
+.button {
+  width: fit-content;
+  padding: 10px 29px;
+  @include adaptiveFont(20, 13);
+  font-size: 20px;
+  border-radius: 35px;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: background-color 0.2s ease-in-out;
+  white-space: nowrap;
+
+  @include mobile {
+    padding: 10px 20px;
+  }
+
+  &--color-primary {
+    background: #39AA67;
+    @media (hover: hover) {
+      &:hover {
+        background: #23c274;
+      }
+    }
+  }
+
+  &--color-dark {
+    background: #333;
+    @media (hover: hover) {
+      &:hover {
+        background: #464646;
+      }
+    }
+  }
+
+  &--full-width {
+    width: 100%;
+  }
+}
+
+// ____________
+
+// Footer
+
+.footer-wrp {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 50px 0;
+  font-weight: 300;
+
+  @include mobile {
+    padding: 30px 0 ;
+  }
+
+  & * {
+    color: #ffffff;
+    @include adaptiveFont(20, 13);
+  }
+}
+
+.founders-help {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+
+  @include mobile {
+    gap: 15px;
+  }
+
+  & a {
+    text-decoration: underline dotted #8D8D8D;
+    text-underline-offset: 4px;
+  }
+
+  &__image {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    overflow: hidden;
+
+    @include mobile {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+}
+
+// ____________
+
+// FormItem
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+
+  &--error {
+    color: #FF0200;
+    border: 1px solid #FF0200;
+    background: #FFBEBEB2;
+
+    &::placeholder {
+      color: #fa403e;
+    }
+    &:focus {
+      outline-color: #FF0200;
+    }
+  }
+
+  &__error-message {
+    padding: 20px 20px 0 20px;
+    color: #FF0200;
+    @include adaptiveFont(20, 14)
+  }
+}
+
+.form-label {
+  color: #000;
+  margin-bottom: 20px;
+  transition: color 0.2s ease-in-out;
+  font-weight: 700;
+
+  &--error {
+    color: #FF0200;
+  }
+}
+
+// ____________
+
+// Header
+
+.header {
+  padding: 30px 0;
+  display: flex;
+  justify-content: space-between;
+
+  @include mobile {
+    padding-top: 20px;
+  }
+
+  &__logo {
+    @include adaptiveFont(24, 18);
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    & svg {
+      width: 34px;
+      height: 34px;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+}
+
+// ____________
+
+
+// Input
+
+.input {
+  padding: 15px 20px;
+  border-radius: 11px;
+  border: 1px solid #ECECEC;
+  background: #F5F5F7;
+  transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+
+  &::placeholder {
+    color: #8D8D8D;
+    font-weight: 300;
+  }
+
+  &:focus {
+    outline-color: #727272;
+    outline-width: 2px;
+    outline-offset: 0;
+  }
+
+  &--text-area {
+    resize: none;
+  }
+
+  &--error {
+    color: #FF0200;
+    border: 1px solid #FF0200;
+    background: #FFBEBEB2;
+
+    &::placeholder {
+      color: #fa403e;
+    }
+    &:focus {
+      outline-color: #FF0200;
+    }
+  }
+}
+
+// ____________
+
+// Modal
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.modal-backdrop {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.78);
+  display: flex;
+  justify-content: center;
+
+  &--children-align-center {
+    align-items: center;
+  }
+
+  &--children-align-end {
+    align-items: flex-end;
+  }
+}
+
+// ____________
+
+// PopUp
+
+.pop-up {
+  width: 100%;
+  max-width: 800px;
+  padding: 37px 37px 37px 67px;
+  border-radius: 25px;
+  background: #F1F6F8;
+  @include mobile {
+    padding: 20px;
+    margin: 0 20px;
+  }
+
+  &__head {
+    min-height: 38px;
+    position: relative;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+
+    & h3 {
+      margin: 0;
+      max-width: 90%;
+    }
+
+    & button {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      padding: 0;
+      background: none;
+
+      @include hover {
+        background: none;
+      }
+
+      @include mobile {
+        & svg {
+          width: 27px;
+          height: 27px;
+        }
+      }
+    }
+  }
+
+  &__body {
+    padding-right: 30px;
+    @include mobile {
+      padding-right: 0;
+    }
+  }
+}
+
+// ____________
+
+
+// Radio
+
+.radio-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  @include mobile {
+    gap: 10px;
+  }
+}
+
+.radio-item {
+  position: relative;
+  overflow: hidden;
+  padding: 10px 33px;
+  border-radius: 30px;
+  background: #F5F5F7;
+  z-index: 1;
+  user-select: none;
+  transition: 0.2s color ease-in-out, 0.2s background-color ease-in-out;
+
+  & input {
+    outline: none;
+    opacity: 0;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+
+  &--checked {
+    background: #39AA67;
+    & label {
+      color:#fff;
+    }
+  }
+}
+
+// ____________
+
+// RadioPaymentsTermList
+
+.radio-payments-term-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(363px, 1fr));
+  gap: 15px;
+
+  @include mobile {
+    grid-template-columns: 1fr
+  }
+}
+
+.radio-payments-term-item {
+  position: relative;
+  overflow: hidden;
+  padding: 30px;
+  border-radius: 17px;
+  max-height: 377px;
+  background: #F5F5F7;
+  z-index: 1;
+  user-select: none;
+  transition: 0.2s color ease-in-out, 0.2s background-color ease-in-out;
+
+  @include mobile {
+    padding: 15px;
+  }
+
+  & label {
+    font-weight: 700;
+  }
+
+  &__price {
+    margin-top: 15px;
+    width: fit-content;
+    padding: 10px 20px 10px 0;
+    border-radius: 14px;
+    background-color: #F5F5F7;
+    @include adaptiveFont(30, 16);
+    transition:  padding 0.3s ease-in-out;
+  }
+
+  & p {
+    @include adaptiveFont(20, 16)
+  }
+
+  & input {
+    outline: none;
+    opacity: 0;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+
+  &--checked {
+    background: #39AA67;
+    & label {
+      color:#fff;
+    }
+
+    & .radioPaymentsTermItem__price {
+      padding: 10px 20px;
+    }
+
+    & p {
+      color:#fff;
+    }
+  }
+}
+
+// ____________
+
+
+// Switch
+
+.switch {
+  position: relative;
+  width: 62px;
+  height: 30px;
+  border-radius: 15px;
+  background: #F5F5F7;
+  overflow: hidden;
+  transition: background-color 0.3s ease-in-out;
+
+  &__mark {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 4px 4px 0 #0000001A;
+    transition: left 0.3s ease-in-out;
+  }
+
+  & input[type='checkbox'] {
+    opacity: 0;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+
+  &--checked {
+    background: #39AA67;
+
+    & .switch__mark {
+      left: 34px;
+    }
+  }
+}
+
+// ____________
+
+// Title
+
+.title {
+  @include adaptiveFont(75, 35);
+  line-height: 90%;
+  margin: clamp(60px, 5vw, 80px) 0 clamp(20px, 5vw, 40px ) 0;
+
+  &--white {
+    color: #fff;
+  }
+}
+
+// ____________
